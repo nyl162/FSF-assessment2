@@ -9,7 +9,7 @@
 |title|string|search DB for title name in *title*|
 |limit|number|pagination: to limit the result output (default:10)|
 |offset|number|pagination: to offset the result output (default:0)|
-|order|number|<ol><li>sort by author ascending(default)</li><li>sort by author descending</li><li>sort by title ascending</li><li>sort by title descending</li></ol>|
+|order|number|<ul><li>0 - sort by author ascending(default)</li><li>1 - sort by author descending</li><li>2 - sort by title ascending</li><li>3 - sort by title descending</li></ul>|
 
 
 
