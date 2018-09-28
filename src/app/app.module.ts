@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { ImportModule } from './import.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchLibraryComponent } from './search-library/search-library.component';
+import { SearchLibrarybyIDComponent } from './search-libraryby-id/search-libraryby-id.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchLibraryComponent
+    SearchLibraryComponent,
+    SearchLibrarybyIDComponent
   ],
   imports: [
     BrowserModule,

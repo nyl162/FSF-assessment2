@@ -2,6 +2,7 @@
 
 ### endpoint 1: _/searchBook_
 method: POST
+accept: application/json
 
 #### input:
 |name|accept|usage|
@@ -19,11 +20,25 @@ method: POST
 |author|string|author name in concatinated *author_firstname* and *author_lastname* |
 |title|string| book title|
 |cover_thumbnail|string(URI)| images files located at _/images_ endpoint **to be append to URL on front end**|
+##### sample output
+```json
+{
+"id": 99,
+"author": "Le Guin",
+"title": "A Wizard of Earthsea",
+"cover_thumbnail": "no_book_cover.jpg"
+},
+  {
+"id": 33,
+"author": "Price",
+"title": "Amazon Adventure",
+"cover_thumbnail": "no_book_cover.jpg"
+}
+```
 
-### endpoint 2: _/images_
-
-### endpoint 3: _/searchBookID_
+### endpoint 2: _/searchBookID_
 method: POST
+accept: application/json
 
 #### input:
 |name|accept|usage|
@@ -39,8 +54,35 @@ method: POST
 |author_lastname|string|author last name|
 |title|string| book title|
 |cover_thumbnail|string(URI)| images files located at _/images_ endpoint **to be append to URL on front end**|
+##### sample output
+```json
+{
+"id": 1,
+"author_firstname": "Susannah",
+"author_lastname": "Leigh",
+"title": "The Haunted Tower",
+"cover_thumbnail": "the_haunted_tower.jpg"
+}
+```
+
+### endpoint 3: _/images_
 
 Serve uploaded images
+
+### endpoint 4: _/imageUpload_
+method: POST
+accept: multipart/formdata
+
+```
+Upload file to /images folder retain original filename and extension.
+```
+#### output (JSON):
+##### sample output
+```json
+{
+"message": "upload ok!"
+}
+```
 
 ## Open issues
 1. DB: *author_lastname* contain unclean data with "/".

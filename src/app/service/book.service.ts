@@ -3,15 +3,15 @@ import { HttpClient, HttpParams} from '@angular/common/http';
 import { Observable, of} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-//import {AddCriteria,QueryCriteria} from '../models/models';
+import {QueryCriteria} from '../models/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
   criteria : QueryCriteria = {
-    name:"bp",
-    brand:"",
+    author:"bp",
+    title:"",
     order:0,
     limit: environment.svcLimit,
     offset:0
