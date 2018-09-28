@@ -81,7 +81,7 @@ export class SearchLibraryComponent implements OnInit {
     this.refreshData();
   }
   paginated(pageEvent: PageEvent){
-    console.log(pageEvent);
+    //console.log(pageEvent);
     this.bookSvc.criteria.limit=pageEvent.pageSize;
     this.bookSvc.criteria.offset=pageEvent.pageSize*pageEvent.pageIndex;
     //this.resetIndex = pageEvent.pageIndex
