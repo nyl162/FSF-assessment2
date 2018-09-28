@@ -19,8 +19,7 @@ import { PlatformModule } from "@angular/cdk/platform";
 import { ObserversModule } from "@angular/cdk/observers";
 import { FormsModule } from "@angular/forms";
 import {MatPaginatorModule} from '@angular/material/paginator';
-
-//import { RoutingModule } from "./routing.module";
+import { RoutingModule } from "./routing.module";
 
 let MODULES = [
     MatToolbarModule,MatFormFieldModule,MatInputModule,
@@ -37,8 +36,8 @@ let MODULES = [
     CommonModule,
     MatPaginatorModule,
     MatTableModule,
-    MatSortModule//,
-    //RoutingModule
+    MatSortModule,
+    RoutingModule
   ];
 
 @NgModule({
