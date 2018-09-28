@@ -22,7 +22,7 @@ method: POST
 
 ### endpoint 2: _/images_
 
-### endpoint 3: _/searchBook_
+### endpoint 3: _/searchBookID_
 method: POST
 
 #### input:
