@@ -90,8 +90,8 @@ var makeQuery = (sql, pool)=>{
     console.error(error);
 });
 */
-app.use(cors(corsOptions));
-//app.use(cors());
+//app.use(cors(corsOptions));
+app.use(cors());
 
 app.post("/searchBook",bP.json(),(req,res)=>{ //cors(corsOptions)
     //console.log(req);

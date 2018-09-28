@@ -13,3 +13,67 @@
     </div>
   </form>
 </div>
+
+<table mat-table [dataSource]="tableData" class="mat-elevation-z8" matSort (matSortChange)="sortData($event)">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="URL">
+      <mat-header-cell *matHeaderCellDef> Book Cover </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <img [src]="element.URL"> </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="author">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Author </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayCols"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayCols;"></mat-row>
+  </table>
+
+<!----
+<div fxLayout="row">
+  <div class="fixBox">
+     
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center" fxFlex="grow" (click)="sortTitle()">
+    <div>Title
+      <mat-icon *ngIf="bookSvc.criteria.order === 2">keyboard_arrow_down</mat-icon>
+      <mat-icon *ngIf="bookSvc.criteria.order === 3">keyboard_arrow_up</mat-icon>
+      <mat-icon *ngIf="bookSvc.criteria.order === 0 || bookSvc.criteria.order === 1">minimize</mat-icon>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start" class="fixBox" (click)="sortAuthor()">
+    <div>Author
+      <mat-icon *ngIf="bookSvc.criteria.order === 0">keyboard_arrow_down</mat-icon>
+      <mat-icon *ngIf="bookSvc.criteria.order === 1">keyboard_arrow_up</mat-icon>
+      <mat-icon *ngIf="bookSvc.criteria.order === 2 || bookSvc.criteria.order === 3">minimize</mat-icon>
+    </div>
+  </div>
+</div>
+
+  <div *ngFor="let n of tempResult" class="exPad">
+    <mat-card fxLayout="row" (click)="editClick(n.id)">
+      <div class="fixBox">
+        <img [src]=n.URL alt="" class="heightLimit">
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center" fxFlex="grow">{{n.title}}</div>
+      <div fxLayout="row" fxLayoutAlign="start" class="fixBox">{{n.author}}</div>
+    </mat-card>
+  </div>
+  --->
+<mat-paginator [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="pageEvent = $event">
+</mat-paginator>

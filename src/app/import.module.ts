@@ -9,7 +9,7 @@ import {MatRadioModule} from "@angular/material/radio"
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatMomentDateModule} from '@angular/material-moment-adapter';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { MatIconModule } from "@angular/material";
+import { MatIconModule, MatTableModule, MatSortModule } from "@angular/material";
 import {MatSliderModule} from '@angular/material/slider';
 
 import {MatListModule} from '@angular/material/list';
@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlatformModule } from "@angular/cdk/platform";
 import { ObserversModule } from "@angular/cdk/observers";
 import { FormsModule } from "@angular/forms";
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 //import { RoutingModule } from "./routing.module";
 
 let MODULES = [
@@ -32,7 +34,10 @@ let MODULES = [
     PlatformModule,
     ObserversModule,
     FormsModule,
-    CommonModule//,
+    CommonModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule//,
     //RoutingModule
   ];
 
