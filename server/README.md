@@ -1,6 +1,6 @@
 ## API usage
 
-### endpoint: /searchBook
+### endpoint: _/searchBook_
 
 #### input:
 |name|accept|usage|
