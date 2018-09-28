@@ -40,6 +40,11 @@
     <mat-header-row *matHeaderRowDef="displayCols"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayCols;"></mat-row>
   </table>
+  <mat-paginator 
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions">
+  </mat-paginator>
 
 <!----
 <div fxLayout="row">
@@ -72,8 +77,3 @@
     </mat-card>
   </div>
   --->
-<mat-paginator [length]="length"
-  [pageSize]="pageSize"
-  [pageSizeOptions]="pageSizeOptions"
-  (page)="pageEvent = $event">
-</mat-paginator>

@@ -2,7 +2,7 @@ import { Component, OnInit ,ViewChild} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { BookService } from '../service/book.service';
 import { environment } from '../../environments/environment';
-import {PageEvent, MatTableDataSource, MatSort, Sort} from '@angular/material';
+import {PageEvent, MatTableDataSource, MatSort, Sort, MatPaginator} from '@angular/material';
 
 @Component({
   selector: 'app-search-library',
@@ -12,6 +12,7 @@ import {PageEvent, MatTableDataSource, MatSort, Sort} from '@angular/material';
 export class SearchLibraryComponent implements OnInit {
 
   @ViewChild('MatSort') sort: MatSort;
+  @ViewChild('MatPaginator') paginator:MatPaginator;
 
   tempResult: any;
   displayCols = ['URL', 'title' ,'author']
@@ -28,6 +29,7 @@ export class SearchLibraryComponent implements OnInit {
   }
   ngAfterViewInit(){
     this.tableData.sort = this.sort;
+    this.tableData.paginator = this.paginator;
   }
 
   refreshData(){
