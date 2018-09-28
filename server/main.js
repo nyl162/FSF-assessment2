@@ -154,6 +154,8 @@ app.post('/imageUpload', upload.single("img"), (req, res) =>{
 
 app.use('/images',express.static(path.join(__dirname,'images')));
 
+app.use('/',express.static(path.join(__dirname,'..','dist','FSF-Server-assessment')));
+
 PORT = process.argv[2] || process.env.APP_PORT || 3000
 
 app.listen(PORT, ()=>{

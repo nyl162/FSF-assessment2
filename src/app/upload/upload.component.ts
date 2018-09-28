@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+/*import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { FormsModule, NgForm, FormControl,FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { BookService } from '../service/book.service';
 import { environment } from '../../environments/environment';
@@ -59,3 +59,4 @@ export class UploadComponent implements OnInit {
   }
 
 }
+*/
