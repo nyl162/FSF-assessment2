@@ -10,9 +10,9 @@ import {QueryCriteria} from '../models/models';
 })
 export class BookService {
   criteria : QueryCriteria = {
-    author:"bp",
-    title:"",
-    order:0,
+    author:"",
+    title:" ",
+    order:2,
     limit: environment.svcLimit,
     offset:0
   }

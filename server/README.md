@@ -71,7 +71,12 @@ Serve uploaded images
 
 ### endpoint 4: _/imageUpload_
 method: POST
+
+#### input:
 accept: multipart/formdata
+|key|type|description|
+|---|---|---|
+|img|{imagefile}|any image file with extension supported by the browser|
 
 ```
 Upload file to /images folder retain original filename and extension.

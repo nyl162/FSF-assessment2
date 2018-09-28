@@ -1,3 +1,15 @@
-<p>
-  search-library works!
-</p>
+<div fxLayout="column">
+  <form #search="ngForm" (ngSubmit)="searchDB(search)">
+    <div fxLayout="row">
+      <mat-form-field class="exPad" fxFlex="grow">
+        <input matInput placeholder="Title" name = "title" ngModel>
+      </mat-form-field>
+      <mat-form-field class="exPad" fxFlex="grow">
+        <input matInput placeholder="Author" name = "author" ngModel>
+      </mat-form-field>
+      <div fxLayout="column" fxLayoutAlign="center">
+        <button mat-raised-button color="primary" class="exPad" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
