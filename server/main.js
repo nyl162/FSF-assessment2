@@ -121,12 +121,9 @@ app.post("/searchBook",bP.json(),(req,res)=>{ //cors(corsOptions)
 
 app.post("/searchBookID",bP.json(),(req,res)=>{ //cors(corsOptions)
     //console.log(req);
-
     let qId = parseInt(req.body.id) || 0;
-   
     //let sqlFindBook = `SELECT id, concat(author_firstname, ' ', author_lastname) author , title, cover_thumbnail from books where ( author_firstname like ? or  author_lastname like ? ) or title like ? limit ? offset ?`
-    let sqlFindBookbyID = `with listing as (SELECT id, CONCAT_WS(TRIM(author_firstname), TRIM(author_lastname)) author , title, cover_thumbnail from books)
-    select id, author, title, cover_thumbnail from listing where id = ?`
+    let sqlFindBookbyID = `select id, author_firstname, author_lastname, title, cover_thumbnail from books where id = ?`
     let findBookbyID = makeQuery(sqlFindBookbyID, pool);
   
     //console.log(parseInt(req.query.order),'-',req.query.order,'-',qOrder);

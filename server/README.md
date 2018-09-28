@@ -35,7 +35,8 @@ method: POST
 |key|type|description|
 |---|---|---|
 |id|number|unique ID of the data|
-|author|string|author name in concatinated *author_firstname* and *author_lastname* |
+|author_firstname|string|author first name|
+|author_lastname|string|author last name|
 |title|string| book title|
 |cover_thumbnail|string(URI)| images files located at _/images_ endpoint **to be append to URL on front end**|
 
@@ -43,3 +44,4 @@ Serve uploaded images
 
 ## Open issues
 1. DB: *author_lastname* contain unclean data with "/".
+2. DB: *author_firstname* might be empty.
