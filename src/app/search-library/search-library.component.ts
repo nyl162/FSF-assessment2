@@ -54,6 +54,7 @@ export class SearchLibraryComponent implements OnInit {
     //console.log(input.value);
     this.bookSvc.criteria.author=input.value.author;
     this.bookSvc.criteria.title=input.value.title;
+    //this.bookSvc.criteria.offset = 0;   /// unable to reset pagination after search.....
     this.refreshData();
   }
 
@@ -83,6 +84,8 @@ export class SearchLibraryComponent implements OnInit {
     console.log(pageEvent);
     this.bookSvc.criteria.limit=pageEvent.pageSize;
     this.bookSvc.criteria.offset=pageEvent.pageSize*pageEvent.pageIndex;
+    //this.resetIndex = pageEvent.pageIndex
+    //console.log (this.tableData.paginator);
     this.refreshData();
   }
 /*

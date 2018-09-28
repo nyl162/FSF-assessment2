@@ -10,6 +10,6 @@ table {
     max-height: 70px;
 }
 .fixBox{
-    width:200px;
-    height: auto;
+    width:auto;
+    height: 300px;
 }
