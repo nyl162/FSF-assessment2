@@ -18,9 +18,26 @@ method: POST
 |id|number|unique ID of the data|
 |author|string|author name in concatinated *author_firstname* and *author_lastname* |
 |title|string| book title|
-|cover_thumbnail|string(URI)| images files located at _/images_ endpoint *to be append on front end*|
+|cover_thumbnail|string(URI)| images files located at _/images_ endpoint **to be append to URL on front end**|
 
 ### endpoint 2: _/images_
+
+### endpoint 3: _/searchBook_
+method: POST
+
+#### input:
+|name|accept|usage|
+|---|---|---|
+|id|number|search DB for unique *id* |
+* assume database peform control to provide unique id
+
+#### output (JSON):
+|key|type|description|
+|---|---|---|
+|id|number|unique ID of the data|
+|author|string|author name in concatinated *author_firstname* and *author_lastname* |
+|title|string| book title|
+|cover_thumbnail|string(URI)| images files located at _/images_ endpoint **to be append to URL on front end**|
 
 Serve uploaded images
 
