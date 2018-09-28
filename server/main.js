@@ -4,8 +4,23 @@ const express = require ('express');
 const path = require ('path');
 const bP = require ('body-parser');
 const mysql = require ('mysql');
+const multer  = require('multer')
 
 const app = express();
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, path.join(__dirname,'images'))
+    },
+    filename: function (req, file, cb) {
+        //console.log(JSON.stringify(file));
+      //cb(null, file.fieldname + '-' + Date.now())
+      cb(null, file.originalname);
+    },
+    fieldSize: 20 * 1024 * 1024
+  })
+  
+var upload = multer({ storage: storage })
 
 //console.log("DB USER : " + process.env.DB_USER);
 //console.log("DB NAME : " + process.env.DB_NAME);
@@ -85,7 +100,7 @@ app.post("/searchBook",bP.json(),(req,res)=>{ //cors(corsOptions)
     //console.log(req.body);
     let qAuthor = req.body.author? `%${req.body.author}%`: null
     let qTitle = req.body.title? `%${req.body.title}%`: null
-    let qOrder = orderL[parseInt(req.body.order) || 0];
+    let qOrder = orderL[parseInt(req.body.order) || 2];
     let qLimit = parseInt(req.body.limit) || 10;
     let qOffset = parseInt(req.body.offset) || 0;
     
@@ -124,6 +139,9 @@ app.post("/searchBookID",bP.json(),(req,res)=>{ //cors(corsOptions)
    // res.json({result : "success"});
 });
 
+app.post('/imageUpload', upload.single("img"), (req, res) =>{
+    res.status(201).json({message: "upload ok!"});
+  })
 
 app.use('/images',express.static(path.join(__dirname,'images')));
 
