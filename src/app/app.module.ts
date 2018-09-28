@@ -6,15 +6,15 @@ import { ImportModule } from './import.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchLibraryComponent } from './search-library/search-library.component';
 import { SearchLibrarybyIDComponent } from './search-libraryby-id/search-libraryby-id.component';
-import { UploadComponent } from './upload/upload.component';
+//import { UploadComponent } from './upload/upload.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchLibraryComponent,
-    SearchLibrarybyIDComponent,
-    UploadComponent
+    SearchLibrarybyIDComponent//,
+    //UploadComponent
   ],
   imports: [
     BrowserModule,
