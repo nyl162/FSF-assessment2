@@ -18,8 +18,8 @@ export class SearchLibraryComponent implements OnInit {
   displayCols = ['URL', 'title' ,'author']
   tableData = new MatTableDataSource<any>();
 
-  length = 100;
-  pageSize = 10;
+  length = 0;
+  pageSize = environment.svcLimit;
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
   constructor(private bookSvc:BookService) { }
@@ -35,14 +35,16 @@ export class SearchLibraryComponent implements OnInit {
   refreshData(){
     //console.log(this.activatedRoute.snapshot.params);
     this.bookSvc.searchBook().subscribe((results)=>{
-      this.tempResult = results.map(x=>{
+      this.tempResult = results.sql.map(x=>{
         let y = {
           ...x,
           URL: `${environment.api_url}/images/${x.cover_thumbnail}`
         }
         return y;
       });
-      console.log(this.tempResult);
+      //console.log(this.tempResult);
+      this.length = results.count;
+      //console.log(this.length)
       this.tableData.data=this.tempResult;
     });
   }

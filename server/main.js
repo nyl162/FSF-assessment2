@@ -108,10 +108,22 @@ app.post("/searchBook",bP.json(),(req,res)=>{ //cors(corsOptions)
     let sqlFindBook = `with listing as (SELECT id, CONCAT_WS(TRIM(author_firstname), TRIM(author_lastname)) author , title, cover_thumbnail from books)
     select id, author, title, cover_thumbnail from listing where ( author like ?) or title like ? order by ${qOrder} limit ? offset ?`
     let findBook = makeQuery(sqlFindBook, pool);
+
+    //find book count
+    let sqlCountBook = `with listing as (SELECT id, CONCAT_WS(TRIM(author_firstname), TRIM(author_lastname)) author , title, cover_thumbnail from books)
+    select count(id) count from listing where ( author like ?) or title like ?`
+    let countBook = makeQuery(sqlCountBook, pool);
   
     //console.log(parseInt(req.query.order),'-',req.query.order,'-',qOrder);
     findBook([qAuthor,qTitle,qLimit,qOffset]).then((results)=>{
-        res.json(results);
+        countBook([qAuthor,qTitle,qLimit,qOffset]).then((counts)=>{
+           // console.log(counts[0].count)
+            res.json({sql : results , count: counts[0].count});
+        }).catch((error)=>{
+            console.error(error);
+            res.status(404).json(error);
+        });
+        //res.json(results);
     }).catch((error)=>{
         console.error(error);
         res.status(404).json(error);

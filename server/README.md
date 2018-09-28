@@ -16,13 +16,16 @@ accept: application/json
 #### output (JSON):
 |key|type|description|
 |---|---|---|
-|id|number|unique ID of the data|
-|author|string|author name in concatinated *author_firstname* and *author_lastname* |
-|title|string| book title|
-|cover_thumbnail|string(URI)| images files located at _/images_ endpoint **to be append to URL on front end**|
+|sql.id|number|unique ID of the data|
+|sql.author|string|author name in concatinated *author_firstname* and *author_lastname* |
+|sql.title|string| book title|
+|sql.cover_thumbnail|string(URI)| images files located at _/images_ endpoint **to be append to URL on front end**|
+|count|number|number of results in the query|
 ##### sample output
 ```json
 {
+"sql": [
+  {
 "id": 99,
 "author": "Le Guin",
 "title": "A Wizard of Earthsea",
@@ -33,6 +36,9 @@ accept: application/json
 "author": "Price",
 "title": "Amazon Adventure",
 "cover_thumbnail": "no_book_cover.jpg"
+}
+],
+"count": 112
 }
 ```
 
