@@ -104,7 +104,7 @@ export class SearchLibraryComponent implements OnInit {
     this.refreshData();
   }
 */
-  editClick(n: number){
+  editClick(n){
     console.log(n);
   }
 }

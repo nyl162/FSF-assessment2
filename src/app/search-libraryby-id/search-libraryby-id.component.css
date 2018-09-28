@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+}
+
+.mat-sort-header-container {
+    align-items: center;
+}
+
+.heightLimit{
+    max-height: 70px;
+}
+.fixBox{
+    width:200px;
+    height: auto;
+}

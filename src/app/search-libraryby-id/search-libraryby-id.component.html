@@ -1,3 +1,45 @@
-<p>
-  search-libraryby-id works!
-</p>
+<div fxLayout="column">
+    <form #search="ngForm" (ngSubmit)="searchDBiD(search)">
+      <div fxLayout="row">
+        <mat-form-field class="exPad" fxFlex="grow">
+          <input matInput type="number" placeholder="Database Entry ID" name = "id" ngModel>
+        </mat-form-field>
+        <div fxLayout="column" fxLayoutAlign="center">
+          <button mat-raised-button color="primary" class="exPad" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <table mat-table [dataSource]="tableData2" class="mat-elevation-z8">
+  
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="URL">
+        <mat-header-cell *matHeaderCellDef> Book Cover </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <img [src]="element.URL" class="fixBox"> </mat-cell>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="author_firstname">
+          <mat-header-cell *matHeaderCellDef>Author First Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.author_firstname}} </mat-cell>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="author_lastname">
+        <mat-header-cell *matHeaderCellDef> Author First Name</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.author_lastname}} </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayCols"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayCols;"></mat-row>
+    </table>

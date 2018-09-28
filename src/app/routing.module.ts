@@ -3,12 +3,13 @@ import {RouterModule, Routes} from '@angular/router'
 import { NgModule } from "@angular/core";
 import { SearchLibraryComponent } from "./search-library/search-library.component";
 import { SearchLibrarybyIDComponent } from "./search-libraryby-id/search-libraryby-id.component";
+import { UploadComponent } from "./upload/upload.component";
 
 
 const appRoutes :Routes = [
 
     {path: '' , component: SearchLibraryComponent},
-    {path: 'ID/:id' , component: SearchLibrarybyIDComponent},
+    {path: 'upload' , component: UploadComponent},
     {path: 'searchID' , component: SearchLibrarybyIDComponent},
     {path: '**' , redirectTo: '/', pathMatch: 'full'}
 

@@ -28,6 +28,16 @@ export class BookService {
       );
   }
 
+  searchBookID(id:number) : Observable<any>{
+
+    //console.log(id);
+
+    return this.http.post(`${environment.api_url}/searchBookID`,{id})
+      .pipe(
+        catchError(this.handleError('searchBookID', []))
+      );
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); // log to console instead

@@ -1,0 +1,11 @@
+<div>
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <div fxLayout="column">
+        <label for="file_upload">File Upload</label>
+        <input type="file" id="img" (change)="onFileChange($event)" #fileInput>
+        <button type="button" (click)="clearFile()">clear file</button>
+      </div>
+      <button mat-raised-button color="primary" class="exPad" type="submit">Upload</button>
+      <button mat-raised-button color="primary" class="exPad" (click)="clearFile()">Clear File</button>
+  </form>
+</div>

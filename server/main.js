@@ -138,7 +138,7 @@ app.post("/searchBookID",bP.json(),(req,res)=>{ //cors(corsOptions)
     let sqlFindBookbyID = `select id, author_firstname, author_lastname, title, cover_thumbnail from books where id = ?`
     let findBookbyID = makeQuery(sqlFindBookbyID, pool);
   
-    //console.log(parseInt(req.query.order),'-',req.query.order,'-',qOrder);
+    //console.log(parseInt(req.query.id),'-',req.query.id,'-',qId);
     findBookbyID([qId]).then((results)=>{
         res.json(results);
     }).catch((error)=>{
