@@ -43,7 +43,8 @@
   <mat-paginator 
   [length]="length"
   [pageSize]="pageSize"
-  [pageSizeOptions]="pageSizeOptions">
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="paginated($event)">
   </mat-paginator>
 
 <!----

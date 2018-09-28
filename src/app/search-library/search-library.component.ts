@@ -21,6 +21,7 @@ export class SearchLibraryComponent implements OnInit {
   length = 0;
   pageSize = environment.svcLimit;
   pageSizeOptions: number[] = [5, 10, 25, 100];
+  
 
   constructor(private bookSvc:BookService) { }
 
@@ -50,7 +51,7 @@ export class SearchLibraryComponent implements OnInit {
   }
 
   searchDB(input:NgForm){
-    console.log(input.value);
+    //console.log(input.value);
     this.bookSvc.criteria.author=input.value.author;
     this.bookSvc.criteria.title=input.value.title;
     this.refreshData();
@@ -58,8 +59,8 @@ export class SearchLibraryComponent implements OnInit {
 
   sortData(sort: Sort) {
     let sortNumber: number;
-    console.log(sort);
-    console.log(sort.active+sort.direction);
+    //console.log(sort);
+    //console.log(sort.active+sort.direction);
     switch (sort.active+sort.direction){
     case 'titleasc' : sortNumber = 2;
     break;
@@ -71,11 +72,17 @@ export class SearchLibraryComponent implements OnInit {
     break;
     default: sortNumber = this.bookSvc.criteria.order;
     }
-    console.log (sortNumber);
+   // console.log (sortNumber);
     if(sortNumber === this.bookSvc.criteria.order){
       return;
     }
     this.bookSvc.criteria.order = sortNumber;
+    this.refreshData();
+  }
+  paginated(pageEvent: PageEvent){
+    console.log(pageEvent);
+    this.bookSvc.criteria.limit=pageEvent.pageSize;
+    this.bookSvc.criteria.offset=pageEvent.pageSize*pageEvent.pageIndex;
     this.refreshData();
   }
 /*

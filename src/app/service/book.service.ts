@@ -11,7 +11,7 @@ import {QueryCriteria} from '../models/models';
 export class BookService {
   criteria : QueryCriteria = {
     author:"",
-    title:" ",
+    title:"",
     order:2,
     limit: environment.svcLimit,
     offset:0
@@ -20,7 +20,7 @@ export class BookService {
 
   searchBook() : Observable<any>{
 
-    console.log(this.criteria);
+    //console.log(this.criteria);
 
     return this.http.post(`${environment.api_url}/searchBook`,this.criteria)
       .pipe(
